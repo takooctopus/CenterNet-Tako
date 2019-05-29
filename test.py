@@ -8,6 +8,7 @@ import importlib
 import numpy as np
 
 import matplotlib
+
 matplotlib.use("Agg")
 
 from config import system_configs
@@ -15,6 +16,7 @@ from nnet.py_factory import NetworkFactory
 from db.datasets import datasets
 
 torch.backends.cudnn.benchmark = False
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Test CenterNet")
@@ -31,12 +33,14 @@ def parse_args():
     args = parser.parse_args()
     return args
 
+
 def make_dirs(directories):
     for directory in directories:
         if not os.path.exists(directory):
             os.makedirs(directory)
 
-def test(db, split, testiter, debug=False, suffix=None): 
+
+def test(db, split, testiter, debug=False, suffix=None):
     result_dir = system_configs.result_dir
     result_dir = os.path.join(result_dir, str(testiter), split)
 
@@ -60,6 +64,7 @@ def test(db, split, testiter, debug=False, suffix=None):
     nnet.eval_mode()
     testing(db, nnet, result_dir, debug=debug)
 
+
 if __name__ == "__main__":
     args = parse_args()
 
@@ -71,13 +76,13 @@ if __name__ == "__main__":
 
     with open(cfg_file, "r") as f:
         configs = json.load(f)
-            
+
     configs["system"]["snapshot_name"] = args.cfg_file
     system_configs.update_config(configs["system"])
 
     train_split = system_configs.train_split
-    val_split   = system_configs.val_split
-    test_split  = system_configs.test_split
+    val_split = system_configs.val_split
+    test_split = system_configs.test_split
 
     split = {
         "training": train_split,

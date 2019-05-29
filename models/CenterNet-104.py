@@ -129,7 +129,7 @@ class model(kp):
         n       = 5
         dims    = [256, 256, 384, 384, 384, 512]
         modules = [2, 2, 2, 2, 2, 4]
-        out_dim = 80
+        out_dim = 10
 
         super(model, self).__init__(
             db, n, 2, dims, modules, out_dim,

@@ -4,28 +4,29 @@ import numpy as np
 
 from config import system_configs
 
+
 class BASE(object):
     def __init__(self):
         self._split = None
         self._db_inds = []
         self._image_ids = []
 
-        self._data            = None
-        self._image_hdf5      = None
-        self._image_file      = None
+        self._data = None
+        self._image_hdf5 = None
+        self._image_file = None
         self._image_hdf5_file = None
 
-        self._mean    = np.zeros((3, ), dtype=np.float32)
-        self._std     = np.ones((3, ), dtype=np.float32)
-        self._eig_val = np.ones((3, ), dtype=np.float32)
+        self._mean = np.zeros((3,), dtype=np.float32)
+        self._std = np.ones((3,), dtype=np.float32)
+        self._eig_val = np.ones((3,), dtype=np.float32)
         self._eig_vec = np.zeros((3, 3), dtype=np.float32)
 
-        self._configs             = {}
-        self._train_cfg           = {}
-        self._model               = {}
+        self._configs = {}
+        self._train_cfg = {}
+        self._model = {}
         self._configs["data_aug"] = True
 
-        self._data_rng            = None
+        self._data_rng = None
 
     @property
     def data(self):

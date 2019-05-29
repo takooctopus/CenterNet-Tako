@@ -1,5 +1,7 @@
-from db.coco import MSCOCO 
+from db.coco import MSCOCO
+from db.dagm import DAGM
 
 datasets = {
-    "MSCOCO": MSCOCO
+    "MSCOCO": MSCOCO,
+    "DAGM" : DAGM
 }

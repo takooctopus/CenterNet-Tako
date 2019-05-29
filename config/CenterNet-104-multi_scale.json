@@ -42,7 +42,7 @@
         "test_scales": [0.6, 1, 1.2, 1.5, 1.8],
 
         "top_k": 70,
-        "categories": 80,
+        "categories": 10,
         "kp_categories": 1,
         "ae_threshold": 0.5,
         "nms_threshold": 0.5,

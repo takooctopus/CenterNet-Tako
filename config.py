@@ -1,45 +1,45 @@
 import os
 import numpy as np
 
+
 class Config:
     def __init__(self):
         self._configs = {}
-        self._configs["dataset"]           = None
+        self._configs["dataset"] = None
         self._configs["sampling_function"] = "kp_detection"
 
         # Training Config
-        self._configs["display"]           = 5
-        self._configs["snapshot"]          = 5000
-        self._configs["stepsize"]          = 450000
-        self._configs["learning_rate"]     = 0.00025
-        self._configs["decay_rate"]        = 10
-        self._configs["max_iter"]          = 500000
-        self._configs["val_iter"]          = 100
-        self._configs["batch_size"]        = 1
-        self._configs["snapshot_name"]     = None
-        self._configs["prefetch_size"]     = 100
-        self._configs["weight_decay"]      = False
+        self._configs["display"] = 5
+        self._configs["snapshot"] = 5000
+        self._configs["stepsize"] = 450000
+        self._configs["learning_rate"] = 0.00025
+        self._configs["decay_rate"] = 10
+        self._configs["max_iter"] = 500000
+        self._configs["val_iter"] = 100
+        self._configs["batch_size"] = 1
+        self._configs["snapshot_name"] = None
+        self._configs["prefetch_size"] = 100
+        self._configs["weight_decay"] = False
         self._configs["weight_decay_rate"] = 1e-5
         self._configs["weight_decay_type"] = "l2"
-        self._configs["pretrain"]          = None
-        self._configs["opt_algo"]          = "adam"
-        self._configs["chunk_sizes"]       = None
+        self._configs["pretrain"] = None
+        self._configs["opt_algo"] = "adam"
+        self._configs["chunk_sizes"] = None
 
         # Directories
-        self._configs["data_dir"]   = "data"
-        self._configs["cache_dir"]  = "cache"
-        self._configs["config_dir"] = "config"
-        self._configs["result_dir"] = "results"
+        self._configs["data_dir"] = "./data"
+        self._configs["cache_dir"] = "./cache"
+        self._configs["config_dir"] = "./config"
+        self._configs["result_dir"] = "./results"
 
         # Split
         self._configs["train_split"] = "trainval"
-        self._configs["val_split"]   = "minival"
-        self._configs["test_split"]  = "testdev"
+        self._configs["val_split"] = "minival"
+        self._configs["test_split"] = "testdev"
 
         # Rng
         self._configs["data_rng"] = np.random.RandomState(123)
         self._configs["nnet_rng"] = np.random.RandomState(317)
-
 
     @property
     def chunk_sizes(self):
@@ -176,5 +176,6 @@ class Config:
         for key in new:
             if key in self._configs:
                 self._configs[key] = new[key]
+
 
 system_configs = Config()
